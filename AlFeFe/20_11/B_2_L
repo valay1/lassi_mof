@@ -1,0 +1,21 @@
+#!/bin/bash -l
+#SBATCH --account=pi-lgagliardi
+#SBATCH --qos=lgagliardi
+#SBATCH --time=240:00:00
+#SBATCH --nodes=1
+#SBATCH --partition=caslake,lgagliardi-amd,lgagliardi-hm,lgagliardi-ld
+#SBATCH --ntasks-per-node=16
+#SBATCH --mem-per-cpu=8G
+#SBATCH --error=error.%j.err
+#SBATCH --job-name=AlFe2_2011_115_analyze
+
+export PYTHONPATH=/project/lgagliardi/shared/Apps/pyscf:$PYTHONPATH
+export PYTHONPATH=/project/lgagliardi/valayagarawal/Apps/mrh-cpu:$PYTHONPATH 
+
+module load python
+module load intel
+module load gcc
+
+ulimit -s unlimited
+export PYSCF_MAX_MEMORY=128000
+/usr/bin/time --verbose python $1

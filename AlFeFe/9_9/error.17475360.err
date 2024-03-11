@@ -1,0 +1,25 @@
+/software/python-anaconda-2022.05-el8-x86_64/lib/python3.9/site-packages/scipy/__init__.py:146: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.25.0
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion}"
+	Command being timed: "python lassi_r2_r1.py"
+	User time (seconds): 11951.91
+	System time (seconds): 193.83
+	Percent of CPU this job got: 1040%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 19:27.67
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 29226180
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 1271053
+	Voluntary context switches: 208395
+	Involuntary context switches: 53165448
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 43416
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

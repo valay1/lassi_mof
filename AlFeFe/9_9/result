@@ -1,0 +1,319 @@
+r0_n1.log:LASSI eigenvalues (5 total):
+r0_n1.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r0_n1.log-  0  -3971.7923541975  24.750       5       4       A
+r0_n1.log-  1  -3971.7875711374  15.750       5       4       A
+r0_n1.log-  2  -3971.7838509796   8.750       5       4       A
+r0_n1.log-  3  -3971.7811937240   3.750       5       4       A
+r0_n1.log-  4  -3971.7795993706   0.750       5       4       A
+--
+r0_n10.log:LASSI eigenvalues (5 total):
+r0_n10.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r0_n10.log-  0  -3971.7923541975  24.750       5       4       A
+r0_n10.log-  1  -3971.7875711374  15.750       5       4       A
+r0_n10.log-  2  -3971.7838509796   8.750       5       4       A
+r0_n10.log-  3  -3971.7811937240   3.750       5       4       A
+r0_n10.log-  4  -3971.7795993706   0.750       5       4       A
+--
+r0_n2.log:LASSI eigenvalues (5 total):
+r0_n2.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r0_n2.log-  0  -3971.7923541975  24.750       5       4       A
+r0_n2.log-  1  -3971.7875711374  15.750       5       4       A
+r0_n2.log-  2  -3971.7838509796   8.750       5       4       A
+r0_n2.log-  3  -3971.7811937240   3.750       5       4       A
+r0_n2.log-  4  -3971.7795993706   0.750       5       4       A
+--
+r0_n3.log:LASSI eigenvalues (5 total):
+r0_n3.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r0_n3.log-  0  -3971.7923541975  24.750       5       4       A
+r0_n3.log-  1  -3971.7875711374  15.750       5       4       A
+r0_n3.log-  2  -3971.7838509796   8.750       5       4       A
+r0_n3.log-  3  -3971.7811937240   3.750       5       4       A
+r0_n3.log-  4  -3971.7795993706   0.750       5       4       A
+--
+r0_n4.log:LASSI eigenvalues (5 total):
+r0_n4.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r0_n4.log-  0  -3971.7923541975  24.750       5       4       A
+r0_n4.log-  1  -3971.7875711374  15.750       5       4       A
+r0_n4.log-  2  -3971.7838509796   8.750       5       4       A
+r0_n4.log-  3  -3971.7811937240   3.750       5       4       A
+r0_n4.log-  4  -3971.7795993706   0.750       5       4       A
+--
+r0_n5.log:LASSI eigenvalues (5 total):
+r0_n5.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r0_n5.log-  0  -3971.7923541975  24.750       5       4       A
+r0_n5.log-  1  -3971.7875711374  15.750       5       4       A
+r0_n5.log-  2  -3971.7838509796   8.750       5       4       A
+r0_n5.log-  3  -3971.7811937240   3.750       5       4       A
+r0_n5.log-  4  -3971.7795993706   0.750       5       4       A
+--
+r0_n6.log:LASSI eigenvalues (5 total):
+r0_n6.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r0_n6.log-  0  -3971.7923541975  24.750       5       4       A
+r0_n6.log-  1  -3971.7875711374  15.750       5       4       A
+r0_n6.log-  2  -3971.7838509796   8.750       5       4       A
+r0_n6.log-  3  -3971.7811937240   3.750       5       4       A
+r0_n6.log-  4  -3971.7795993706   0.750       5       4       A
+--
+r0_n7.log:LASSI eigenvalues (5 total):
+r0_n7.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r0_n7.log-  0  -3971.7923541975  24.750       5       4       A
+r0_n7.log-  1  -3971.7875711374  15.750       5       4       A
+r0_n7.log-  2  -3971.7838509796   8.750       5       4       A
+r0_n7.log-  3  -3971.7811937240   3.750       5       4       A
+r0_n7.log-  4  -3971.7795993706   0.750       5       4       A
+--
+r0_n8.log:LASSI eigenvalues (5 total):
+r0_n8.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r0_n8.log-  0  -3971.7923541975  24.750       5       4       A
+r0_n8.log-  1  -3971.7875711374  15.750       5       4       A
+r0_n8.log-  2  -3971.7838509796   8.750       5       4       A
+r0_n8.log-  3  -3971.7811937240   3.750       5       4       A
+r0_n8.log-  4  -3971.7795993706   0.750       5       4       A
+--
+r0_n9.log:LASSI eigenvalues (5 total):
+r0_n9.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r0_n9.log-  0  -3971.7923541975  24.750       5       4       A
+r0_n9.log-  1  -3971.7875711374  15.750       5       4       A
+r0_n9.log-  2  -3971.7838509796   8.750       5       4       A
+r0_n9.log-  3  -3971.7811937240   3.750       5       4       A
+r0_n9.log-  4  -3971.7795993706   0.750       5       4       A
+--
+r1_n1.log:LASSI eigenvalues (13 total):
+r1_n1.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r1_n1.log-  0  -3971.7923541975  24.750       5       4       A
+r1_n1.log-  1  -3971.7876777562  15.750       5       4       A
+r1_n1.log-  2  -3971.7839989992   8.749       5       4       A
+r1_n1.log-  3  -3971.7813737225   3.748       5       4       A
+r1_n1.log-  4  -3971.7798229756   0.753       5       4       A
+--
+r1_n10.log:LASSI eigenvalues (165 total):
+r1_n10.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r1_n10.log-  0  -3971.7926700023   0.750       5       4       A
+r1_n10.log-  1  -3971.7926464809   3.750       5       4       A
+r1_n10.log-  2  -3971.7925973496   8.750       5       4       A
+r1_n10.log-  3  -3971.7925073253  15.750       5       4       A
+r1_n10.log-  4  -3971.7923541975  24.750       5       4       A
+--
+r1_n2.log:LASSI eigenvalues (37 total):
+r1_n2.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r1_n2.log-  0  -3971.7923541975  24.750       5       4       A
+r1_n2.log-  1  -3971.7882265845  15.750       5       4       A
+r1_n2.log-  2  -3971.7850137074   8.750       5       4       A
+r1_n2.log-  3  -3971.7827183481   3.750       5       4       A
+r1_n2.log-  4  -3971.7813435823   0.750       5       4       A
+--
+r1_n3.log:LASSI eigenvalues (77 total):
+r1_n3.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r1_n3.log-  0  -3971.7923541975  24.750       5       4       A
+r1_n3.log-  1  -3971.7908451852  15.749       5       4       A
+r1_n3.log-  2  -3971.7896878838   8.745       5       4       A
+r1_n3.log-  3  -3971.7888682639   3.738       5       4       A
+r1_n3.log-  4  -3971.7883478025   0.767       5       4       A
+--
+r1_n4.log:LASSI eigenvalues (133 total):
+r1_n4.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r1_n4.log-  0  -3971.7923541975  24.750       5       4       A
+r1_n4.log-  1  -3971.7922142266  15.750       5       4       A
+r1_n4.log-  2  -3971.7920802727   8.750       5       4       A
+r1_n4.log-  3  -3971.7919721743   3.750       5       4       A
+r1_n4.log-  4  -3971.7919017155   0.751       5       4       A
+--
+r1_n5.log:LASSI eigenvalues (165 total):
+r1_n5.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r1_n5.log-  0  -3971.7926700023   0.750       5       4       A
+r1_n5.log-  1  -3971.7926464809   3.750       5       4       A
+r1_n5.log-  2  -3971.7925973496   8.750       5       4       A
+r1_n5.log-  3  -3971.7925073253  15.750       5       4       A
+r1_n5.log-  4  -3971.7923541975  24.750       5       4       A
+--
+r1_n6.log:LASSI eigenvalues (165 total):
+r1_n6.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r1_n6.log-  0  -3971.7926700023   0.750       5       4       A
+r1_n6.log-  1  -3971.7926464809   3.750       5       4       A
+r1_n6.log-  2  -3971.7925973496   8.750       5       4       A
+r1_n6.log-  3  -3971.7925073253  15.750       5       4       A
+r1_n6.log-  4  -3971.7923541975  24.750       5       4       A
+--
+r1_n7.log:LASSI eigenvalues (165 total):
+r1_n7.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r1_n7.log-  0  -3971.7926700023   0.750       5       4       A
+r1_n7.log-  1  -3971.7926464809   3.750       5       4       A
+r1_n7.log-  2  -3971.7925973496   8.750       5       4       A
+r1_n7.log-  3  -3971.7925073253  15.750       5       4       A
+r1_n7.log-  4  -3971.7923541975  24.750       5       4       A
+--
+r1_n8.log:LASSI eigenvalues (165 total):
+r1_n8.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r1_n8.log-  0  -3971.7926700023   0.750       5       4       A
+r1_n8.log-  1  -3971.7926464809   3.750       5       4       A
+r1_n8.log-  2  -3971.7925973496   8.750       5       4       A
+r1_n8.log-  3  -3971.7925073253  15.750       5       4       A
+r1_n8.log-  4  -3971.7923541975  24.750       5       4       A
+--
+r1_n9.log:LASSI eigenvalues (165 total):
+r1_n9.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r1_n9.log-  0  -3971.7926700023   0.750       5       4       A
+r1_n9.log-  1  -3971.7926464809   3.750       5       4       A
+r1_n9.log-  2  -3971.7925973496   8.750       5       4       A
+r1_n9.log-  3  -3971.7925073253  15.750       5       4       A
+r1_n9.log-  4  -3971.7923541975  24.750       5       4       A
+--
+r2_n1.log:LASSI eigenvalues (29 total):
+r2_n1.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r2_n1.log-  0  -3971.7923541975  24.750       5       4       A
+r2_n1.log-  1  -3971.7876797105  15.750       5       4       A
+r2_n1.log-  2  -3971.7840009438   8.749       5       4       A
+r2_n1.log-  3  -3971.7813746856   3.748       5       4       A
+r2_n1.log-  4  -3971.7798229883   0.753       5       4       A
+--
+r2_n10.log:LASSI eigenvalues (895 total):
+r2_n10.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r2_n10.log-  0  -3971.7927588452   0.750       5       4       A
+r2_n10.log-  1  -3971.7927100708   3.750       5       4       A
+r2_n10.log-  2  -3971.7926275793   8.750       5       4       A
+r2_n10.log-  3  -3971.7925097568  15.750       5       4       A
+r2_n10.log-  4  -3971.7923541975  24.750       5       4       A
+--
+r2_n2.log:LASSI eigenvalues (87 total):
+r2_n2.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r2_n2.log-  0  -3971.7923541975  24.750       5       4       A
+r2_n2.log-  1  -3971.7882293217  15.750       5       4       A
+r2_n2.log-  2  -3971.7850172993   8.750       5       4       A
+r2_n2.log-  3  -3971.7827215341   3.750       5       4       A
+r2_n2.log-  4  -3971.7813462091   0.750       5       4       A
+--
+r2_n3.log:LASSI eigenvalues (179 total):
+r2_n3.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r2_n3.log-  0  -3971.7923541975  24.750       5       4       A
+r2_n3.log-  1  -3971.7908472514  15.749       5       4       A
+r2_n3.log-  2  -3971.7896932176   8.745       5       4       A
+r2_n3.log-  3  -3971.7888770131   3.738       5       4       A
+r2_n3.log-  4  -3971.7883587267   0.768       5       4       A
+--
+r2_n4.log:LASSI eigenvalues (305 total):
+r2_n4.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r2_n4.log-  0  -3971.7923541975  24.750       5       4       A
+r2_n4.log-  1  -3971.7922150123  15.750       5       4       A
+r2_n4.log-  2  -3971.7920917962   8.750       5       4       A
+r2_n4.log-  3  -3971.7919967507   3.749       5       4       A
+r2_n4.log-  4  -3971.7919361227   0.751       5       4       A
+--
+r2_n5.log:LASSI eigenvalues (425 total):
+r2_n5.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r2_n5.log-  0  -3971.7927115752   0.750       5       4       A
+r2_n5.log-  1  -3971.7926763884   3.750       5       4       A
+r2_n5.log-  2  -3971.7926117278   8.750       5       4       A
+r2_n5.log-  3  -3971.7925087415  15.750       5       4       A
+r2_n5.log-  4  -3971.7923541975  24.750       5       4       A
+--
+r2_n6.log:LASSI eigenvalues (531 total):
+r2_n6.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r2_n6.log-  0  -3971.7927288622   0.750       5       4       A
+r2_n6.log-  1  -3971.7926888135   3.750       5       4       A
+r2_n6.log-  2  -3971.7926177757   8.750       5       4       A
+r2_n6.log-  3  -3971.7925093894  15.750       5       4       A
+r2_n6.log-  4  -3971.7923541975  24.750       5       4       A
+--
+r2_n7.log:LASSI eigenvalues (613 total):
+r2_n7.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r2_n7.log-  0  -3971.7927379451   0.750       5       4       A
+r2_n7.log-  1  -3971.7926952276   3.750       5       4       A
+r2_n7.log-  2  -3971.7926206907   8.750       5       4       A
+r2_n7.log-  3  -3971.7925094164  15.750       5       4       A
+r2_n7.log-  4  -3971.7923541975  24.750       5       4       A
+--
+r2_n8.log:LASSI eigenvalues (701 total):
+r2_n8.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r2_n8.log-  0  -3971.7927449077   0.750       5       4       A
+r2_n8.log-  1  -3971.7927003269   3.750       5       4       A
+r2_n8.log-  2  -3971.7926227495   8.750       5       4       A
+r2_n8.log-  3  -3971.7925094429  15.750       5       4       A
+r2_n8.log-  4  -3971.7923541975  24.750       5       4       A
+--
+r2_n9.log:LASSI eigenvalues (795 total):
+r2_n9.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r2_n9.log-  0  -3971.7927533050   0.750       5       4       A
+r2_n9.log-  1  -3971.7927061398   3.750       5       4       A
+r2_n9.log-  2  -3971.7926257266   8.750       5       4       A
+r2_n9.log-  3  -3971.7925096801  15.750       5       4       A
+r2_n9.log-  4  -3971.7923541975  24.750       5       4       A
+--
+r3_n1.log:LASSI eigenvalues (47 total):
+r3_n1.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r3_n1.log-  0  -3971.7923541975  24.750       5       4       A
+r3_n1.log-  1  -3971.7876797105  15.750       5       4       A
+r3_n1.log-  2  -3971.7840009464   8.749       5       4       A
+r3_n1.log-  3  -3971.7813746876   3.748       5       4       A
+r3_n1.log-  4  -3971.7798229883   0.753       5       4       A
+--
+r3_n10.log:LASSI eigenvalues (1895 total):
+r3_n10.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r3_n10.log-  0  -3971.7927589846   0.750       5       4       A
+r3_n10.log-  1  -3971.7927101659   3.750       5       4       A
+r3_n10.log-  2  -3971.7926276202   8.750       5       4       A
+r3_n10.log-  3  -3971.7925097568  15.750       5       4       A
+r3_n10.log-  4  -3971.7923541975  24.750       5       4       A
+--
+r3_n2.log:LASSI eigenvalues (159 total):
+r3_n2.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r3_n2.log-  0  -3971.7923541975  24.750       5       4       A
+r3_n2.log-  1  -3971.7882293218  15.750       5       4       A
+r3_n2.log-  2  -3971.7850173031   8.750       5       4       A
+r3_n2.log-  3  -3971.7827215376   3.750       5       4       A
+r3_n2.log-  4  -3971.7813462104   0.750       5       4       A
+--
+r3_n3.log:LASSI eigenvalues (341 total):
+r3_n3.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r3_n3.log-  0  -3971.7923541975  24.750       5       4       A
+r3_n3.log-  1  -3971.7908472514  15.749       5       4       A
+r3_n3.log-  2  -3971.7896932400   8.745       5       4       A
+r3_n3.log-  3  -3971.7888770345   3.738       5       4       A
+r3_n3.log-  4  -3971.7883587334   0.768       5       4       A
+--
+r3_n4.log:LASSI eigenvalues (593 total):
+r3_n4.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r3_n4.log-  0  -3971.7923541975  24.750       5       4       A
+r3_n4.log-  1  -3971.7922150123  15.750       5       4       A
+r3_n4.log-  2  -3971.7920918155   8.750       5       4       A
+r3_n4.log-  3  -3971.7919967687   3.749       5       4       A
+r3_n4.log-  4  -3971.7919361282   0.751       5       4       A
+--
+r3_n5.log:LASSI eigenvalues (825 total):
+r3_n5.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r3_n5.log-  0  -3971.7927115919   0.750       5       4       A
+r3_n5.log-  1  -3971.7926764170   3.750       5       4       A
+r3_n5.log-  2  -3971.7926117539   8.750       5       4       A
+r3_n5.log-  3  -3971.7925087415  15.750       5       4       A
+r3_n5.log-  4  -3971.7923541975  24.750       5       4       A
+--
+r3_n6.log:LASSI eigenvalues (1035 total):
+r3_n6.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r3_n6.log-  0  -3971.7927289049   0.750       5       4       A
+r3_n6.log-  1  -3971.7926888583   3.750       5       4       A
+r3_n6.log-  2  -3971.7926178072   8.750       5       4       A
+r3_n6.log-  3  -3971.7925093894  15.750       5       4       A
+r3_n6.log-  4  -3971.7923541975  24.750       5       4       A
+--
+r3_n7.log:LASSI eigenvalues (1229 total):
+r3_n7.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r3_n7.log-  0  -3971.7927380130   0.750       5       4       A
+r3_n7.log-  1  -3971.7926952862   3.750       5       4       A
+r3_n7.log-  2  -3971.7926207257   8.750       5       4       A
+r3_n7.log-  3  -3971.7925094164  15.750       5       4       A
+r3_n7.log-  4  -3971.7923541975  24.750       5       4       A
+--
+r3_n8.log:LASSI eigenvalues (1437 total):
+r3_n8.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r3_n8.log-  0  -3971.7927450001   0.750       5       4       A
+r3_n8.log-  1  -3971.7927003990   3.750       5       4       A
+r3_n8.log-  2  -3971.7926227849   8.750       5       4       A
+r3_n8.log-  3  -3971.7925094429  15.750       5       4       A
+r3_n8.log-  4  -3971.7923541975  24.750       5       4       A
+--
+r3_n9.log:LASSI eigenvalues (1659 total):
+r3_n9.log- ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+r3_n9.log-  0  -3971.7927534227   0.750       5       4       A
+r3_n9.log-  1  -3971.7927062244   3.750       5       4       A
+r3_n9.log-  2  -3971.7926257667   8.750       5       4       A
+r3_n9.log-  3  -3971.7925096801  15.750       5       4       A
+r3_n9.log-  4  -3971.7923541975  24.750       5       4       A

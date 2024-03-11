@@ -1,0 +1,464 @@
+#INFO: **** input file is /project/lgagliardi/valayagarawal/lasscf/mof_nodes/Al_Fe_Fe/production/10_11/lassi_r1_n9.py ****
+import numpy as np
+import sys
+from pyscf import gto, scf, tools,lib, mcscf
+from pyscf.mcscf import avas,project_init_guess
+from pyscf import mcscf
+from mrh.my_pyscf.tools import molden
+from mrh.my_pyscf.mcscf import lasscf_async as asyn
+mol_name='Al_Fe_Fe.xyz' # Al-Fe-Fe MOF node
+basis={'C': 'cc-pvdz','H': 'cc-pvdz','O': 'cc-pvtz','Al': 'cc-pvtz','Fe': 'cc-pvtz'}
+r=1;n=9
+output='r'+str(r)+'_n'+str(n)+'.log'
+mol=gto.M(atom=mol_name,verbose=4,spin=9,charge=0,basis=basis, output=output) #spin = 2S
+mf=scf.RHF(mol)
+mf=mf.density_fit()
+mf.max_cycle=1
+mf.kernel()
+mf.mo_coeff=np.load('hf.npy')
+
+mo_guess=np.load('las_10_11.npy')
+las=asyn.LASSCF(mf,(5,5),((1,5),(5,0)),spin_sub=(5,6),verbose=4) # spin is 2S+1
+las.set_fragments_(([17],[19]),mo_guess)
+las.mo_coeff=mo_guess
+from mrh.my_pyscf.lassi import states
+las=states.spin_shuffle(las)
+for _ in range(r):
+	las=states.all_single_excitations(las)
+ncsf=las.get_ugg().ncsf_sub
+lroots=np.minimum(n,ncsf)
+las.lasci()
+las.lasci(lroots=lroots)
+e_roots, si= las.lassi(opt=1)
+#INFO: ******************** input file end ********************
+
+
+System: uname_result(system='Linux', node='midway3-0308.rcc.local', release='4.18.0-305.3.1.el8.x86_64', version='#1 SMP Tue Jun 1 16:14:33 UTC 2021', machine='x86_64')  Threads 16
+Python 3.9.12 (main, Apr  5 2022, 06:56:58) 
+[GCC 7.5.0]
+numpy 1.25.0  scipy 1.7.3
+Date: Wed Feb 21 09:27:35 2024
+PySCF version 2.5.0
+PySCF path  /project/lgagliardi/shared/Apps/pyscf
+GIT ORIG_HEAD 0bc590ffddec98eec5d2513a3d85274b7a791bc6
+GIT HEAD (branch master) 6f8ce439fbe0c26ec4d226e2225b28c7f668f922
+
+[ENV] PYSCF_MAX_MEMORY 128000
+[CONFIG] conf_file /home/valayagarawal/.pyscf_conf.py
+[INPUT] verbose = 4
+[INPUT] num. atoms = 28
+[INPUT] num. electrons = 211
+[INPUT] charge = 0
+[INPUT] spin (= nelec alpha-beta = 2S) = 9
+[INPUT] symmetry False subgroup None
+[INPUT] Mole.unit = angstrom
+[INPUT] Symbol           X                Y                Z      unit          X                Y                Z       unit  Magmom
+[INPUT]  1 O     -2.220198244100   0.399190300300   1.694471698900 AA   -4.195566623589   0.754360339150   3.202087436747 Bohr   0.0
+[INPUT]  2 O     -1.685553244600  -1.782306321700   1.431399507200 AA   -3.185234000666  -3.368070818094   2.704953043445 Bohr   0.0
+[INPUT]  3 C     -2.268517865100  -0.831955037900   1.983951274000 AA   -4.286877473722  -1.572167169583   3.749124552342 Bohr   0.0
+[INPUT]  4 H     -2.913342016700  -1.076728588500   2.843786805300 AA   -5.505418518751  -2.034722142755   5.373978218669 Bohr   0.0
+[INPUT]  5 O      1.388288080900   2.079556156200  -1.347085675300 AA    2.623484254899   3.929791595871  -2.545622992642 Bohr   0.0
+[INPUT]  6 O     -0.759908859500   2.580923634700  -0.849227704000 AA   -1.436019624086   4.877238818000  -1.604807777953 Bohr   0.0
+[INPUT]  7 C      0.346567468600   2.753895325000  -1.438835699000 AA    0.654917599338   5.204107939970  -2.719005409357 Bohr   0.0
+[INPUT]  8 H      0.372379614500   3.617699659800  -2.123091150300 AA    0.703695485776   6.836461557954  -4.012060811555 Bohr   0.0
+[INPUT]  9 O      1.046960908100  -2.642534200000   0.961324672200 AA    1.978469379435  -4.993665912797   1.816640347245 Bohr   0.0
+[INPUT] 10 O     -0.399190300300   2.220198244100   1.694471698900 AA   -0.754360339150   4.195566623589   3.202087436747 Bohr   0.0
+[INPUT] 11 O      1.782306321700   1.685553244600   1.431399507200 AA    3.368070818094   3.185234000666   2.704953043445 Bohr   0.0
+[INPUT] 12 C      0.831955037900   2.268517865100   1.983951274000 AA    1.572167169583   4.286877473722   3.749124552342 Bohr   0.0
+[INPUT] 13 H      1.076728588500   2.913342016700   2.843786805300 AA    2.034722142755   5.505418518751   5.373978218669 Bohr   0.0
+[INPUT] 14 O     -2.079556156200  -1.388288080900  -1.347085675300 AA   -3.929791595871  -2.623484254899  -2.545622992642 Bohr   0.0
+[INPUT] 15 O     -2.580923634700   0.759908859500  -0.849227704000 AA   -4.877238818000   1.436019624086  -1.604807777953 Bohr   0.0
+[INPUT] 16 C     -2.753895325000  -0.346567468600  -1.438835699000 AA   -5.204107939970  -0.654917599338  -2.719005409357 Bohr   0.0
+[INPUT] 17 H     -3.617699659800  -0.372379614500  -2.123091150300 AA   -6.836461557954  -0.703695485776  -4.012060811555 Bohr   0.0
+[INPUT] 18 Fe    -0.379874189300  -1.792603362900  -0.200337730300 AA   -0.717858179568  -3.387529405855  -0.378583442684 Bohr   0.0
+[INPUT] 19 O      0.642223180300  -2.237796553000  -1.892914517600 AA    1.213625921614  -4.228822607666  -3.577090015477 Bohr   0.0
+[INPUT] 20 Fe     1.792603362900   0.379874189300  -0.200337730300 AA    3.387529405855   0.717858179568  -0.378583442684 Bohr   0.0
+[INPUT] 21 O      2.237796553000  -0.642223180300  -1.892914517600 AA    4.228822607666  -1.213625921614  -3.577090015477 Bohr   0.0
+[INPUT] 22 O      2.642534200000  -1.046960908100   0.961324672200 AA    4.993665912797  -1.978469379435   1.816640347245 Bohr   0.0
+[INPUT] 23 Al    -1.236271642100   1.236271642100   0.350650148000 AA   -2.336214819135   2.336214819135   0.662632745258 Bohr   0.0
+[INPUT] 24 O     -0.044950195400   0.044950195400   0.012762141300 AA   -0.084943558552   0.084943558552   0.024116951820 Bohr   0.0
+[INPUT] 25 C      1.645528685000  -1.645528685000  -2.357112465400 AA    3.109598544766  -3.109598544766  -4.454297004404 Bohr   0.0
+[INPUT] 26 H      2.056906298400  -2.056906298400  -3.294571291600 AA    3.886989567869  -3.886989567869  -6.225837438979 Bohr   0.0
+[INPUT] 27 C      2.160924281100  -2.160924281100   1.277584186800 AA    4.083555067202  -4.083555067202   2.414284214127 Bohr   0.0
+[INPUT] 28 H      2.796080543300  -2.796080543300   1.918244302400 AA    5.283826449062  -5.283826449062   3.624956371543 Bohr   0.0
+
+nuclear repulsion = 3455.30471244119
+number of shells = 192
+number of NR pGTOs = 1065
+number of NR cGTOs = 674
+basis = {'C': 'cc-pvdz', 'H': 'cc-pvdz', 'O': 'cc-pvtz', 'Al': 'cc-pvtz', 'Fe': 'cc-pvtz'}
+ecp = {}
+CPU time:         1.73
+
+
+******** <class 'pyscf.df.df_jk.DFROHF'> ********
+method = DFROHF
+initial guess = minao
+damping factor = 0
+level_shift factor = 0
+DIIS = <class 'pyscf.scf.diis.CDIIS'>
+diis_start_cycle = 1
+diis_space = 8
+diis_damp = 0
+SCF conv_tol = 1e-09
+SCF conv_tol_grad = None
+SCF max_cycles = 1
+direct_scf = False
+chkfile to save SCF result = /scratch/local/jobs/17682920/tmpmmq2etma
+max_memory 128000 MB (current use 76 MB)
+num. doubly occ = 101  num. singly occ = 9
+Set gradient conv threshold to 3.16228e-05
+******** <class 'pyscf.df.df.DF'> ********
+auxbasis = None
+max_memory = 128000
+Even tempered Gaussians are generated as DF auxbasis for  Fe O C H Al
+init E= -3971.90238344316
+  HOMO = 0.121056952198207  LUMO = 0.123678658553648
+cycle= 1 E= -3943.04990514113  delta_E= 28.9  |g|= 9.05  |ddm|=   34
+SCF not converged.
+SCF energy = -3943.04990514113
+Built 4 spin(local Sz)-shuffled LAS states from 1 reference LAS states
+Built 13 singly-excited LAS states from 5 reference LAS states
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 2.613888e-03 ; sigma = 0.000000e+00
+Cycle 1: max grad = 1.136868e-13 ; sigma = 2.656714e-08
+Cycle 2: max grad = 1.136868e-13 ; sigma = 1.136868e-13
+Product_state fixed-point CI iteration converged after 2 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 2.600930e-03 ; sigma = 0.000000e+00
+Cycle 1: max grad = 3.972194e-16 ; sigma = 2.627428e-08
+Cycle 2: max grad = 3.972194e-16 ; sigma = 2.273737e-13
+Product_state fixed-point CI iteration converged after 2 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 2.595377e-03 ; sigma = 0.000000e+00
+Cycle 1: max grad = 2.808667e-15 ; sigma = 2.615354e-08
+Cycle 2: max grad = 2.808667e-15 ; sigma = 4.547474e-13
+Product_state fixed-point CI iteration converged after 2 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 2.597228e-03 ; sigma = 0.000000e+00
+Cycle 1: max grad = 2.808618e-16 ; sigma = 2.619356e-08
+Cycle 2: max grad = 2.808618e-16 ; sigma = 1.136868e-13
+Product_state fixed-point CI iteration converged after 2 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 2.606484e-03 ; sigma = 0.000000e+00
+Cycle 1: max grad = 3.972066e-16 ; sigma = 2.639820e-08
+Cycle 2: max grad = 3.972066e-16 ; sigma = 0.000000e+00
+Product_state fixed-point CI iteration converged after 2 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 2.082574e-02 ; sigma = 0.000000e+00
+Cycle 1: max grad = 1.752441e-04 ; sigma = 1.511821e-02
+Cycle 2: max grad = 8.314607e-06 ; sigma = 3.871799e-06
+Cycle 3: max grad = 8.554996e-08 ; sigma = 1.609124e-09
+Cycle 4: max grad = 5.028201e-09 ; sigma = 1.136868e-13
+Product_state fixed-point CI iteration converged after 4 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 1.092801e-02 ; sigma = 0.000000e+00
+Cycle 1: max grad = 8.960273e-04 ; sigma = 2.684367e-03
+Cycle 2: max grad = 3.426537e-05 ; sigma = 1.441322e-05
+Cycle 3: max grad = 1.019853e-06 ; sigma = 5.256732e-08
+Cycle 4: max grad = 5.580142e-08 ; sigma = 9.151790e-11
+Product_state fixed-point CI iteration converged after 4 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 4.702213e-03 ; sigma = 0.000000e+00
+Cycle 1: max grad = 5.084229e-14 ; sigma = 9.487285e-03
+Cycle 2: max grad = 5.084229e-14 ; sigma = 5.684342e-14
+Product_state fixed-point CI iteration converged after 2 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 2.085785e-02 ; sigma = 0.000000e+00
+Cycle 1: max grad = 1.524495e-04 ; sigma = 1.523050e-02
+Cycle 2: max grad = 8.946918e-06 ; sigma = 1.781592e-05
+Cycle 3: max grad = 4.057185e-08 ; sigma = 1.814215e-09
+Cycle 4: max grad = 1.351847e-09 ; sigma = 1.136868e-13
+Product_state fixed-point CI iteration converged after 4 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 1.126303e-02 ; sigma = 0.000000e+00
+Cycle 1: max grad = 4.072857e-04 ; sigma = 5.171691e-03
+Cycle 2: max grad = 6.887223e-06 ; sigma = 7.383264e-06
+Cycle 3: max grad = 9.055705e-08 ; sigma = 2.224510e-09
+Cycle 4: max grad = 2.613760e-09 ; sigma = 1.136868e-12
+Product_state fixed-point CI iteration converged after 4 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 4.625156e-03 ; sigma = 0.000000e+00
+Cycle 1: max grad = 2.696320e-14 ; sigma = 8.123216e-03
+Cycle 2: max grad = 1.797547e-14 ; sigma = 5.684342e-14
+Product_state fixed-point CI iteration converged after 2 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 2.086427e-02 ; sigma = 0.000000e+00
+Cycle 1: max grad = 1.534412e-04 ; sigma = 1.518602e-02
+Cycle 2: max grad = 1.061299e-05 ; sigma = 2.708721e-05
+Cycle 3: max grad = 1.402401e-08 ; sigma = 2.640832e-09
+Cycle 4: max grad = 7.856931e-10 ; sigma = 5.684342e-13
+Product_state fixed-point CI iteration converged after 4 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 1.133004e-02 ; sigma = 0.000000e+00
+Cycle 1: max grad = 3.215621e-04 ; sigma = 5.649119e-03
+Cycle 2: max grad = 6.380793e-06 ; sigma = 8.362927e-06
+Cycle 3: max grad = 6.784534e-08 ; sigma = 1.946319e-10
+Cycle 4: max grad = 1.186506e-09 ; sigma = 2.160050e-12
+Product_state fixed-point CI iteration converged after 4 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 4.609744e-03 ; sigma = 0.000000e+00
+Cycle 1: max grad = 3.595093e-14 ; sigma = 7.855686e-03
+Cycle 2: max grad = 3.595093e-14 ; sigma = 5.684342e-14
+Product_state fixed-point CI iteration converged after 2 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 2.084501e-02 ; sigma = 0.000000e+00
+Cycle 1: max grad = 1.546878e-04 ; sigma = 1.521806e-02
+Cycle 2: max grad = 9.390878e-06 ; sigma = 7.933866e-06
+Cycle 3: max grad = 6.681694e-08 ; sigma = 1.951889e-09
+Cycle 4: max grad = 3.111687e-09 ; sigma = 2.273737e-13
+Product_state fixed-point CI iteration converged after 4 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 1.112902e-02 ; sigma = 0.000000e+00
+Cycle 1: max grad = 5.869092e-04 ; sigma = 4.186383e-03
+Cycle 2: max grad = 1.463911e-05 ; sigma = 2.259470e-06
+Cycle 3: max grad = 3.033463e-07 ; sigma = 9.987389e-09
+Cycle 4: max grad = 1.143685e-08 ; sigma = 6.366463e-12
+Product_state fixed-point CI iteration converged after 4 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 4.655979e-03 ; sigma = 0.000000e+00
+Cycle 1: max grad = 2.542115e-14 ; sigma = 8.664761e-03
+Cycle 2: max grad = 2.542115e-14 ; sigma = 5.684342e-14
+Product_state fixed-point CI iteration converged after 2 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 4.763859e-03 ; sigma = 0.000000e+00
+Cycle 1: max grad = 2.664535e-15 ; sigma = 1.059492e-02
+Cycle 2: max grad = 5.329071e-15 ; sigma = 5.684342e-14
+Product_state fixed-point CI iteration converged after 2 cycles
+LASSCF state-average energy = -3971.78172024685
+LASSCF state 0 energy = -3971.78172024685
+LASSCF state 1 energy = -3971.78544204859
+LASSCF state 2 energy = -3971.78703710648
+LASSCF state 3 energy = -3971.78650542051
+LASSCF state 4 energy = -3971.7838469907
+LASSCF state 5 energy = -3970.70223739246
+LASSCF state 6 energy = -3971.21910487136
+LASSCF state 7 energy = -3713.27300419917
+LASSCF state 8 energy = -3970.70405629642
+LASSCF state 9 energy = -3971.22057596479
+LASSCF state 10 energy = -3713.2740322833
+LASSCF state 11 energy = -3970.704458501
+LASSCF state 12 energy = -3971.22089075077
+LASSCF state 13 energy = -3713.27424318433
+LASSCF state 14 energy = -3970.70330901925
+LASSCF state 15 energy = -3971.21997533099
+LASSCF state 16 energy = -3713.27361696757
+LASSCF state 17 energy = -3713.27219810874
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 4.221177e+03 ; sigma = 0.000000e+00
+Cycle 1: max grad = 2.315925e-13 ; sigma = 1.136868e-13
+Product_state fixed-point CI iteration converged after 1 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 4.220975e+03 ; sigma = 0.000000e+00
+Cycle 1: max grad = 1.838529e-13 ; sigma = 2.273737e-13
+Product_state fixed-point CI iteration converged after 1 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 4.220791e+03 ; sigma = 0.000000e+00
+Cycle 1: max grad = 6.294690e-13 ; sigma = 4.547474e-13
+Product_state fixed-point CI iteration converged after 1 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 4.220864e+03 ; sigma = 0.000000e+00
+Cycle 1: max grad = 9.947598e-14 ; sigma = 1.136868e-13
+Product_state fixed-point CI iteration converged after 1 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 4.221086e+03 ; sigma = 0.000000e+00
+Cycle 1: max grad = 2.291500e-13 ; sigma = 1.136868e-13
+Product_state fixed-point CI iteration converged after 1 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 1.809080e+04 ; sigma = 0.000000e+00
+Cycle 1: max grad = 5.535096e-11 ; sigma = 7.958079e-13
+Product_state fixed-point CI iteration converged after 1 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 8.879519e+03 ; sigma = 0.000000e+00
+Cycle 1: max grad = 1.992579e-09 ; sigma = 3.183231e-12
+Product_state fixed-point CI iteration converged after 1 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 1.256595e+02 ; sigma = 0.000000e+00
+Cycle 1: max grad = 5.084229e-14 ; sigma = 0.000000e+00
+Product_state fixed-point CI iteration converged after 1 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 1.550500e+04 ; sigma = 0.000000e+00
+Cycle 1: max grad = 7.617018e-12 ; sigma = 1.136868e-12
+Product_state fixed-point CI iteration converged after 1 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 9.109740e+03 ; sigma = 0.000000e+00
+Cycle 1: max grad = 8.021472e-11 ; sigma = 1.932676e-12
+Product_state fixed-point CI iteration converged after 1 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 1.223856e+02 ; sigma = 0.000000e+00
+Cycle 1: max grad = 5.440093e-15 ; sigma = 0.000000e+00
+Product_state fixed-point CI iteration converged after 1 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 1.371225e+04 ; sigma = 0.000000e+00
+Cycle 1: max grad = 2.515321e-12 ; sigma = 1.591616e-12
+Product_state fixed-point CI iteration converged after 1 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 9.152973e+03 ; sigma = 0.000000e+00
+Cycle 1: max grad = 5.162257e-11 ; sigma = 2.387424e-12
+Product_state fixed-point CI iteration converged after 1 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 1.208087e+02 ; sigma = 0.000000e+00
+Cycle 1: max grad = 2.696320e-14 ; sigma = 5.684342e-14
+Product_state fixed-point CI iteration converged after 1 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 1.714150e+04 ; sigma = 0.000000e+00
+Cycle 1: max grad = 2.473136e-11 ; sigma = 2.273737e-13
+Product_state fixed-point CI iteration converged after 1 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 9.019970e+03 ; sigma = 0.000000e+00
+Cycle 1: max grad = 3.067129e-10 ; sigma = 2.046363e-12
+Product_state fixed-point CI iteration converged after 1 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 1.243551e+02 ; sigma = 0.000000e+00
+Cycle 1: max grad = 2.542115e-14 ; sigma = 5.684342e-14
+Product_state fixed-point CI iteration converged after 1 cycles
+Entering product-state fixed-point CI iteration
+Cycle 0: max grad = 1.259835e+02 ; sigma = 0.000000e+00
+Cycle 1: max grad = 3.996803e-15 ; sigma = 5.684342e-14
+Product_state fixed-point CI iteration converged after 1 cycles
+LASSCF state-average energy = -3971.78172024685
+LASSCF state 0 energy = -3971.78172024685
+LASSCF state 1 energy = -3971.78544204859
+LASSCF state 2 energy = -3971.78703710648
+LASSCF state 3 energy = -3971.78650542051
+LASSCF state 4 energy = -3971.7838469907
+LASSCF state 5 energy = -3970.70223739246
+LASSCF state 6 energy = -3971.21910487136
+LASSCF state 7 energy = -3713.27300419917
+LASSCF state 8 energy = -3970.70405629642
+LASSCF state 9 energy = -3971.22057596479
+LASSCF state 10 energy = -3713.2740322833
+LASSCF state 11 energy = -3970.704458501
+LASSCF state 12 energy = -3971.22089075077
+LASSCF state 13 energy = -3713.27424318433
+LASSCF state 14 energy = -3970.70330901925
+LASSCF state 15 energy = -3971.21997533099
+LASSCF state 16 energy = -3713.27361696757
+LASSCF state 17 energy = -3713.27219810874
+LASSI op_o0 memory check: 13.140144 MB needed of 119998.263296 MB available (128000 MB max)
+Symmetry analysis of 18 LAS rootspaces:
+ ix            Energy  <S**2>  Neleca  Nelecb  Nelec   Wfnsym
+  0  -3971.7817202469   4.750       6       5      11       A
+  1  -3971.7854420486  11.750       6       5      11       A
+  2  -3971.7870371065  14.750       6       5      11       A
+  3  -3971.7865054205  13.750       6       5      11       A
+  4  -3971.7838469907   8.750       6       5      11       A
+  5  -3970.7022373925   3.750       6       5      11       A
+  6  -3971.2191048714   3.750       6       5      11       A
+  7  -3713.2730041992   8.750       6       5      11       A
+  8  -3970.7040562964   8.750       6       5      11       A
+  9  -3971.2205759648   8.750       6       5      11       A
+ 10  -3713.2740322833  13.750       6       5      11       A
+ 11  -3970.7044585010   9.750       6       5      11       A
+ 12  -3971.2208907508   9.750       6       5      11       A
+ 13  -3713.2742431843  14.750       6       5      11       A
+ 14  -3970.7033090193   6.750       6       5      11       A
+ 15  -3971.2199753310   6.750       6       5      11       A
+ 16  -3713.2736169676  11.750       6       5      11       A
+ 17  -3713.2721981087   4.750       6       5      11       A
+Build + diag H matrix LASSI symmetry block 0
+['neleca', 'nelecb', 'irrep'] = (6, 5, 0)
+(18 rootspaces; 410 states)
+LASSI eigenvalues (410 total):
+ ix            Energy  <S**2>  Neleca  Nelecb  Wfnsym
+  0  -3971.7926705661   0.750       6       5       A
+  1  -3971.7926469728   3.750       6       5       A
+  2  -3971.7925977046   8.750       6       5       A
+  3  -3971.7925074521  15.750       6       5       A
+  4  -3971.7923539661  24.750       6       5       A
+  5  -3971.2239078370  15.750       6       5       A
+  6  -3971.2224516619  15.750       6       5       A
+  7  -3971.2204856070   8.750       6       5       A
+  8  -3971.2190266052   3.750       6       5       A
+  9  -3971.2184851903   8.750       6       5       A
+ 10  -3971.2181712913   0.750       6       5       A
+ 11  -3971.2172063793  15.750       6       5       A
+ 12  -3971.2147858244   3.750       6       5       A
+ 13  -3971.2141360542  15.750       6       5       A
+ 14  -3971.2126046091   0.750       6       5       A
+ 15  -3971.2122223858  15.750       6       5       A
+ 16  -3971.2116682987   8.750       6       5       A
+ 17  -3971.2103758876  15.750       6       5       A
+ 18  -3971.2094174636   8.750       6       5       A
+ 19  -3971.2086565696   8.750       6       5       A
+ 20  -3971.2081084505   3.750       6       5       A
+ 21  -3971.2080518476   8.750       6       5       A
+ 22  -3971.2077414465   3.750       6       5       A
+ 23  -3971.2074138453   0.750       6       5       A
+ 24  -3971.2058157252   3.750       6       5       A
+ 25  -3971.2054176510   0.750       6       5       A
+ 26  -3971.2048089210  15.750       6       5       A
+ 27  -3971.2047101593   3.750       6       5       A
+ 28  -3971.2043359459   0.750       6       5       A
+ 29  -3971.2024253823  15.750       6       5       A
+ 30  -3971.2024017753   0.750       6       5       A
+ 31  -3971.2009490854   8.750       6       5       A
+ 32  -3971.1986510793   8.750       6       5       A
+ 33  -3971.1982244906   3.750       6       5       A
+ 34  -3971.1965969022   0.750       6       5       A
+ 35  -3971.1959507282   3.750       6       5       A
+ 36  -3971.1943260673   0.750       6       5       A
+ 37  -3971.1847398938  15.750       6       5       A
+ 38  -3971.1799915978   8.750       6       5       A
+ 39  -3971.1766566388   3.750       6       5       A
+ 40  -3971.1747106101   0.750       6       5       A
+ 41  -3971.1733323111  15.750       6       5       A
+ 42  -3971.1731844344  15.750       6       5       A
+ 43  -3971.1717956830  15.750       6       5       A
+ 44  -3971.1712164773   8.750       6       5       A
+ 45  -3971.1704202770   8.750       6       5       A
+ 46  -3971.1701161738   3.750       6       5       A
+ 47  -3971.1694492919   0.750       6       5       A
+ 48  -3971.1689103484  15.750       6       5       A
+ 49  -3971.1685105273   3.750       6       5       A
+ 50  -3971.1682931630   8.750       6       5       A
+ 51  -3971.1673227224   0.750       6       5       A
+ 52  -3971.1673060890  15.750       6       5       A
+ 53  -3971.1662613153  15.750       6       5       A
+ 54  -3971.1656195381   8.750       6       5       A
+ 55  -3971.1654527500   3.750       6       5       A
+ 56  -3971.1642656883   3.750       6       5       A
+ 57  -3971.1638232883   0.750       6       5       A
+ 58  -3971.1635267691  15.750       6       5       A
+ 59  -3971.1634495693   0.750       6       5       A
+ 60  -3971.1633238856   8.750       6       5       A
+ 61  -3971.1631924080   8.750       6       5       A
+ 62  -3971.1617640598  15.750       6       5       A
+ 63  -3971.1611012061   3.750       6       5       A
+ 64  -3971.1604181806   8.750       6       5       A
+ 65  -3971.1597560000   0.750       6       5       A
+ 66  -3971.1594251336   3.750       6       5       A
+ 67  -3971.1592564339  15.750       6       5       A
+ 68  -3971.1579268989   3.750       6       5       A
+ 69  -3971.1574527967   0.750       6       5       A
+ 70  -3971.1563294932   8.750       6       5       A
+ 71  -3971.1560661731   0.750       6       5       A
+ 72  -3971.1539004797   8.750       6       5       A
+ 73  -3971.1524398964   3.750       6       5       A
+ 74  -3971.1501034228   0.750       6       5       A
+ 75  -3971.1500417732   3.750       6       5       A
+ 76  -3971.1477197068   0.750       6       5       A
+ 77  -3971.1341395814  15.750       6       5       A
+ 78  -3971.1318167659   8.750       6       5       A
+ 79  -3971.1300530011  15.750       6       5       A
+ 80  -3971.1300142388   3.750       6       5       A
+ 81  -3971.1288655048   0.750       6       5       A
+ 82  -3971.1254481118   8.750       6       5       A
+ 83  -3971.1221473475   3.750       6       5       A
+ 84  -3971.1201631974   0.750       6       5       A
+ 85  -3970.7081697197  15.750       6       5       A
+ 86  -3970.7063588500  15.750       6       5       A
+ 87  -3970.7040116389   8.750       6       5       A
+ 88  -3970.7026131692   8.750       6       5       A
+ 89  -3970.7022095943   3.750       6       5       A
+ 90  -3970.7011628234   0.750       6       5       A
+ 91  -3970.6988145014   3.750       6       5       A
+ 92  -3970.6965183472   0.750       6       5       A
+ 93  -3970.6908860424  15.750       6       5       A
+ 94  -3970.6885490092  15.750       6       5       A
+ 95  -3970.6871599260   8.750       6       5       A
+ 96  -3970.6860483195   8.750       6       5       A
+ 97  -3970.6858419382   3.750       6       5       A
+ 98  -3970.6851351520   0.750       6       5       A
+ 99  -3970.6829804803   3.750       6       5       A
+Remaining 310 eigenvalues truncated; increase verbosity to print them all
